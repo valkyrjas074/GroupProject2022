@@ -6,7 +6,7 @@
 import scrapy
 
 
-class ScrapingItem(scrapy.Item):
+class WebScrappingItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     pass
