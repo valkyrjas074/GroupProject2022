@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 
-{% block head %}
-<h1>Test</h1>
-{% endblock %}
+{% block body %}
+<h1 id="title-header">This Is A Title Line</h1>
 
-{% block body %}{% endblock %}
+<h2>Get data quickly and reliably with just a few clicks</h2>
+
+<form action="/" method="post">
+    <input type="text" autofocus autocomplete="off" name="website" placeholder="Enter your website and/or domain" >
+    <input type="submit" value="Go">
+</form>
+{% endblock %}
