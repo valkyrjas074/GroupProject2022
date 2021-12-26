@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+
+{% block body%}
+<p>SIGN UP</p>
+<form action="/signup" method="post">
+    <input type="text" placeholder="Your email" name="username">
+    <input type="password" placeholder="Password" name="password">
+    <input type="password" placeholder="Confirm Password" name="retypepw">
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+</form>
+<div>{{error_msg}}</div>
+<a href="/login">Log In</a>
+{% endblock%}

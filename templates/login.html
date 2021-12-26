@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+
+{% block body%}
+<div>
+    <p>LOGIN</p>
+</div>
+<form action="/login" method="post">
+    <input type="text" placeholder="Username" name="username" autocomplete="off" autofocus>
+    <input type="text" placeholder="Passsword" name="password" autocomplete="off">
+    <button type="submit" class="btn btn-primary">
+        Sign In
+    </button>
+</form>
+<div>{{ error_msg }}</div>
+<a href="/forgot">Forgot password?</a>
+<a href="/signup">Sign up</a>
+{% endblock%}
