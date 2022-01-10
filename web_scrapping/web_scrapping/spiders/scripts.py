@@ -1,12 +1,15 @@
 import scrapy 
 class scriptSpider(scrapy.Spider):
     name = 'script'
-
-    input_urls = input("Urls:\n")
-    start_urls = [input_urls]
+    start_urls = ['https://en.wikipedia.org/wiki/Christmas']
 
     def parse(self, response):
         title = response.css('title::text').extract()
-        post = response.css('div::text').extract()
+        post = response.css('.vector-body::text').extract()
         yield { 'title': title, 
                 'main': post}
+
+
+
+
+    
