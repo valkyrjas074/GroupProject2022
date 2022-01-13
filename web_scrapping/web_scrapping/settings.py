@@ -12,6 +12,10 @@ BOT_NAME = 'web_scrapping'
 SPIDER_MODULES = ['web_scrapping.spiders']
 NEWSPIDER_MODULE = 'web_scrapping.spiders'
 
+ITEM_PIPELINES = {'scrapy.pipelines.images.ImagesPipeline': 1}
+IMAGES_STORE = 'local_folder'
+DEPTH_LIMIT = 0
+SCHEDULER_ORDER = 'BFO'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'web_scrapping (+http://www.yourdomain.com)'
