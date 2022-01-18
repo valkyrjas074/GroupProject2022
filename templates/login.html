@@ -1,15 +1,18 @@
 {% extends 'base.html'%}
 
 {% block body%}
-<div>
-    <p>LOGIN</p>
-</div>
-<form action="/login" method="post">
-    <input type="text" placeholder="Username" name="username" autocomplete="off" autofocus>
-    <input type="text" placeholder="Passsword" name="password" autocomplete="off">
-    <button type="submit" class="btn btn-primary">
-        Sign In
-    </button>
+<div class=" container">
+
+
+    <form class=" input-form" action="/login" method="post">
+        <p class="login-title">LOGIN</p>
+
+        <input class="input-user " type="text" placeholder="Username" name="username" autocomplete="off" autofocus>
+        <input class="input-pass " type="text" placeholder="Passsword" name="password" autocomplete="off">
+        <button class="input-submit" type="submit" class="btn btn-primary">
+            Sign In
+        </button>
+    </div>
 </form>
 <div>{{ error_msg }}</div>
 <a href="/forgot">Forgot password?</a>
