@@ -11,6 +11,9 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from helpers import login_required
 
+# fucntion de crawl photo
+
+
 app = Flask(__name__)
 
 # Ensure templates are auto-reloaded
@@ -123,6 +126,11 @@ def signup():
 @login_required
 def data():
     return render_template("data.html")
-    
+
+@app.route('/data_photo')
+@login_required
+def data_photo():
+    photos = os.listdir(os.path.join(app.static_folder, "test_photo"))
+    return render_template('data_photo.html', photos=photos)
 if __name__ == "__main__":
     app.run(debug=True)
