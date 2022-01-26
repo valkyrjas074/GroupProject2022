@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    padding: 0;
     font-family: sans-serif;
 }
 
@@ -68,6 +69,7 @@ nav {
 }
 
 .form-input {
+  padding: 12px 20px;
   width: 400px;
   height: 50px;
   border-radius: 15px;
@@ -114,6 +116,8 @@ nav {
     display: flex;
     flex-direction: column;
     margin: 30px;
+    padding: 12px 20px;
+
   }
   
   .input-user {
@@ -121,20 +125,27 @@ nav {
     height: 40px;
     border-radius: 15px;
     margin: 10px;
+    padding: 12px 20px;
+
   }
   .input-pass {
     width: 300px;
     height: 40px;
     border-radius: 15px;
     margin: 10px;
+    padding: 12px 20px;
+
   }
   .input-submit {
     width: 300px;
     height: 40px;
     border-radius: 15px;
-    margin: 10px;
+    margin: 0px 10px;
     color: white;
     background: #ed6e3f;
+    padding: 0px 20px;
+    text-align: center;
+
   }
   
   .login-title, .signup-title {
@@ -180,6 +191,8 @@ nav {
     display: flex;
     flex-direction: column;
     margin: 30px;
+    padding: 12px 20px;
+
   }
   
   .input-user {
@@ -187,27 +200,35 @@ nav {
     height: 40px;
     border-radius: 15px;
     margin: 10px;
+    padding: 12px 20px;
+
   }
   .input-pass {
     width: 300px;
     height: 40px;
     border-radius: 15px;
     margin: 10px;
+    padding: 12px 20px;
+
   }
   .input-confirm-pass {
     width: 300px;
     height: 40px;
     border-radius: 15px;
     margin: 10px;
+    padding: 12px 20px;
+
   }
-  .input-submit {
+  /* .input-submit {
     width: 300px;
     height: 40px;
     border-radius: 15px;
     margin: 10px;
     color: white;
     background: #ed6e3f;
-  }
+    padding: 12px 20px;
+
+  } */
   
 
   .sider {
@@ -228,3 +249,18 @@ nav {
     display: flex;
     flex-direction: row;
   }
+
+  .photo-container {
+    width: 85%;
+    margin: 0px auto;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .photo-detail {
+    height: 300px; 
+    width: 300px; 
+    object-fit:cover;
+    margin: 5px 5px 0px;
+}
