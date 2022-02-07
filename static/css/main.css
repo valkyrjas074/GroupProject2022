@@ -264,3 +264,20 @@ nav {
     object-fit:cover;
     margin: 5px 5px 0px;
 }
+
+/* navbar css */
+
+.navbar-custom {
+  background-color: #ed6e3f;
+}
+.navbar-brand {
+  color: white;
+}
+.navbar-custom .nav-item a {
+  color: white;
+}
+
+.btn-custom {
+  border: 1px solid white !important;
+  color: white !important;
+}
