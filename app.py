@@ -165,7 +165,7 @@ def data_text():
 def data_photo():
     #TODO: Add data lake upload option
 
-    if request.methods == "POST":
+    if request.method == "POST":
         return render_template('data_photo.html')
     else:
         with open("web_scrapping/web_scrapping/spiders/photos_url.json") as photo_json:
