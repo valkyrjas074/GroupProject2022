@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<div>
+<div class="photo-container">
     {% for photo in photos %}
-        <div>
-            <img src="{{url_for('static', filename='/test_photo/' + photo) }}" alt="">
+        <div class="photo-item">
+            <img class="photo-detail" src="{{url_for('static', filename='/test_photo/' + photo) }}" alt="">
+            <!-- <img class="photo-detail"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Ho_Chi_Minh_Trail_%28Colorized%29.jpg/220px-Ho_Chi_Minh_Trail_%28Colorized%29.jpg" alt=""> -->
         </div>
     {% endfor %}
 
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Ho_Chi_Minh_Trail_%28Colorized%29.jpg/220px-Ho_Chi_Minh_Trail_%28Colorized%29.jpg" alt="">
 </div>
 {% endblock %}}

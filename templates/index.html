@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h1 id="title-header">This Is A Title Line</h1>
+<div class="form-container">
+    <h1 id="title-header">REAL TIME WEB CRAWLER</h1>
+    <div class="form-header">
 
 <h2>Get data quickly and reliably with just a few clicks</h2>
+</div>
 
-<form action="/" method="post">
-    <input type="text" autofocus autocomplete="off" name="website" placeholder="Enter your website and/or domain" >
-    <input type="submit" value="Go">
-</form>
+<div class="link-items">
+    <a class="link-item" href="/login">Login</a>
+    <a  class="link-item" href="/signup">Sign up</a>
+</div>
 
-<a href="/login">Login</a>
-<a href="/signup">Sign up</a>
 {% endblock %}
