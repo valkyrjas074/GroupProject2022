@@ -2,6 +2,8 @@ body{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+    background-image: url("./image/orange-bg.png");
+
 }
 
 /* index */
@@ -19,11 +21,11 @@ body{
 }
 
 nav {
-  width: 90%;
+  /* width: 90%; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 10px 5%;
+  /* margin: 10px 5%; */
 }
 .nav-items {
   display: flex;
@@ -41,13 +43,13 @@ nav {
   font-size: 36;
   font-weight: bold;
   margin: 10px 0;
-  color: black;
+  color: white;
   font-weight: 500;
   font-size: 25px;
 }
 
 .form-container {
-  height: 50vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,7 +58,7 @@ nav {
 }
 
 #title-header {
-    color: black
+    color: #d14b1a
 }
 
 .form-submit {
@@ -240,7 +242,7 @@ nav {
       text-decoration: none;
       font-size: 15px;
       font-weight: bold;
-      color:black;
+      color:#d14b1a;
       margin: 0px 10px;
      
   }
