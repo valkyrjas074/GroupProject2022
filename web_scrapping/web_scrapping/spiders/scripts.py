@@ -1,15 +1,22 @@
 import scrapy 
-class scriptSpider(scrapy.Spider):
+from scrapy.crawler import CrawlerProcess
+class ScriptSpider(scrapy.Spider):
     name = 'script'
-    start_urls = ['https://en.wikipedia.org/wiki/Christmas']
+
+    def startRequest(self):
+        yield (scrapy.Request('https://blog.coinbase.com/coinbase-and-mastercard-partner-to-revolutionize-nft-purchase-experience-8e486a392c55'))
+   
 
     def parse(self, response):
         title = response.css('title::text').extract()
-        post = response.css('.vector-body::text').extract()
-        yield { 'title': title, 
-                'main': post}
-
-
-
-
+        yield { 'title': title}
     
+
+process = CrawlerProcess(settings = {
+        'FEED_URI': 'script.json',
+        'FEED_FORMAT': 'json'
+    })
+
+process.crawl(ScriptSpider)
+process.start()
+
