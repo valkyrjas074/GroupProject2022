@@ -1,4 +1,3 @@
-from crypt import methods
 import os
 import re
 
@@ -6,9 +5,9 @@ from flask import Flask, redirect, render_template, render_template_string, url_
 from flask_session import Session
 from tempfile import mkdtemp
 from cs50 import SQL
-from flask_sqlalchemy import SQLAlchemy
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
+import json
 
 from helpers import login_required
 
@@ -24,7 +23,6 @@ app.config["SESSION_FILE_DIR"] = mkdtemp()
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///databse.db'
-db = SQLAlchemy(app)
 Session(app)
 
 db = SQL("sqlite:///database.db")
@@ -162,13 +160,19 @@ def data_text():
     #TODO: Add data lake upload option
     return render_template("data_text.html")
 
-@app.route('/data_photo')
+@app.route('/data_photo', methods=["GET","POST"])
 @login_required
 def data_photo():
     #TODO: Add data lake upload option
 
-    photos = os.listdir(os.path.join(app.static_folder, "test_photo"))
-    return render_template('data_photo.html', photos=photos)
+    if request.methods == "POST":
+        return render_template('data_photo.html')
+    else:
+        with open("web_scrapping/web_scrapping/spiders/photos_url.json") as photo_json:
+            json_text = json.load(photo_json)
+            photos = json_text[0]["image_urls"]
+            
+        return render_template('data_photo.html', photos=photos)
 
 if __name__ == "__main__":
     app.run(debug=True)

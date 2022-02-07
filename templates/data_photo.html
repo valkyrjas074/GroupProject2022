@@ -4,10 +4,10 @@
 <div class="photo-container">
     {% for photo in photos %}
         <div class="photo-item">
-            <img class="photo-detail" src="{{url_for('static', filename='/test_photo/' + photo) }}" alt="">
-            <!-- <img class="photo-detail"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Ho_Chi_Minh_Trail_%28Colorized%29.jpg/220px-Ho_Chi_Minh_Trail_%28Colorized%29.jpg" alt=""> -->
+            <img class="photo-detail" src="{{photo}}" alt="">
         </div>
     {% endfor %}
-
 </div>
+
+
 {% endblock %}}
