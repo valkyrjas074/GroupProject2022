@@ -1,7 +1,8 @@
+from crypt import methods
 import os
 import re
 
-from flask import Flask, redirect, render_template, url_for, session, request
+from flask import Flask, redirect, render_template, render_template_string, url_for, session, request
 from flask_session import Session
 from tempfile import mkdtemp
 from cs50 import SQL
@@ -36,9 +37,12 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def index():
-    return render_template("index.html")
+    if request.method == "POST":
+        return render_template("login.html")
+    else:
+        return render_template("index.html")
 
 
 @app.route('/login', methods=["GET", "POST"])
@@ -69,8 +73,8 @@ def login():
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
 
-        # Redirect user to home page
-        return render_template('data.html')
+        # Redirect user to crawl page
+        return render_template("crawl.html")
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:
@@ -122,15 +126,49 @@ def signup():
     else:
         return render_template("signup.html")
 
-@app.route('/data')
+@app.route("/logout")
+def logout():
+    """Log user out"""
+    
+    #clear the session
+    session.clear()
+
+    #redirect the user the index page
+    return redirect("/")
+
+@app.route('/crawl', methods=["GET", "POST"])
 @login_required
-def data():
-    return render_template("data.html")
+def crawl():
+    #TODO: Initiate the crawling fucntion once the user press "GO"
+    #TODO: Add (potential) loading screen while the crawler works
+    #TODO: Redirect the user once the crawling is finished
+
+    if request.method == "POST":
+
+        # try the function to see if if returns an error
+        try:
+            crawl_type = request.form["crawl-type"]
+        except: # if error then return error msg
+            return render_template("crawl.html", error = "Crawl type has not been chosen.")
+
+        return render_template("crawl.html", test = crawl_type)
+    else:
+        return render_template("crawl.html")
+
+@app.route('/data_text')
+@login_required
+def data_text():
+
+    #TODO: Add data lake upload option
+    return render_template("data_text.html")
 
 @app.route('/data_photo')
 @login_required
 def data_photo():
+    #TODO: Add data lake upload option
+
     photos = os.listdir(os.path.join(app.static_folder, "test_photo"))
     return render_template('data_photo.html', photos=photos)
+
 if __name__ == "__main__":
     app.run(debug=True)
