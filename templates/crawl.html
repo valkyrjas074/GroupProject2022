@@ -7,15 +7,13 @@
 </div>
 
 <form class='form-items' action="/crawl" method="post">
-    <input class="form-input" type="text" autofocus autocomplete="off" name="url" placeholder="Enter your website and/or domain" >
+    <input class="form-input" type="text" autofocus autocomplete="off" name="url" placeholder="Enter your website and/or domain" ><br />
     <div>
         {{error}}
     </div>
     <div>
         <input type="radio" name="crawl-type" value="text">
         <label for="text">Text</label>
-    </div>
-    <div>
         <input type="radio" name="crawl-type" value="photo">
         <label for="photo">Photo</label>
     </div>
