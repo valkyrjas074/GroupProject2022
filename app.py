@@ -144,16 +144,16 @@ def crawl():
     #TODO: Redirect the user once the crawling is finished
 
     if request.method == "POST":
+        if not request.form.get("crawl-type"):
+            return render_template("crawl.html", error="crawl-type field is empty")
 
-        # try the function to see if if returns an error
-        try:
-            crawl_type = request.form["crawl-type"]
-        except: # if error then return error msg
-            return render_template("crawl.html", error = "Crawl type has not been chosen.")
-
-        return render_template("crawl.html", test = crawl_type)
+        # Ensure password was submitted
+        elif not request.form.get("url"):
+            return render_template("crawl.html", error="url field is empty")
+        return render_template("crawl.html", test = request.form.get("crawl-type"))
     else:
         return render_template("crawl.html")
+
 
 @app.route('/data_text')
 @login_required
